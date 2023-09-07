@@ -3,32 +3,36 @@ import { useState } from 'react';
 
 function App() {
   const[screen,setScreen]=useState("")
-  
+  console.log(screen)
   const handleClick=(keys)=>{
-       
     switch(keys){
-          case "b":
-            setScreen(()=>
-            screen.slice(0,-1)
-            )
-            break;
+      
+      case "b":
+        if(typeof(screen)==="number"){
+          setScreen("")
           
+        }else{
+          setScreen(screen.slice(0,-1))
           
-          case "c":
-            setScreen("")
-            break;
-          
-          case "=":
-            console.log(eval(screen))
-            break;
-            
-          default:
-              setScreen((screen)=>
-              screen+keys
-              )
-                            
-          }
         }
+      break
+      
+      case "c":
+        setScreen("")
+        break;
+      
+      case "=":
+        setScreen(eval(screen))
+        break;
+        
+      default:
+          setScreen((screen)=>
+          screen+keys
+          )
+                        
+    }
+  }
+
   return (
     <div className="App">
       <h1>Calculator</h1>
@@ -37,7 +41,7 @@ function App() {
         <div id='pad'>
           <div id='keys'onClick={(e)=>handleClick("c")}>C</div>
           <div id='keys'onClick={(e)=>handleClick("/")}>/</div>
-          <div id='keys'onClick={(e)=>handleClick("X")}>X</div>
+          <div id='keys'onClick={(e)=>handleClick("*")}>X</div>
           <div id='keys'onClick={(e)=>handleClick("b")}>B</div>
           <div id='keys' onClick={(e)=>handleClick("7")}>7</div>
           <div id='keys' onClick={(e)=>handleClick("8")}>8</div>
