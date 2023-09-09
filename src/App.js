@@ -35,7 +35,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Calculator</h1>
+      <h1>Calculator without mathjs</h1>
       <div id='cal'>
         <div id='screen'>{screen}</div>
         <div id='pad'>
