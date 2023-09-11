@@ -4,7 +4,10 @@ import { useState } from 'react';
 
 function App() {
   const[screen,setScreen]=useState("")
-  console.log(screen)
+  const[show,setShow]=useState(true)
+  const buttonClick=()=>{
+    setShow(!show)
+  }
   const handleClick=(keys)=>{
     switch(keys){
       case "=":
@@ -30,7 +33,8 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Calculator without mathjs</h1>
+      <button onClick={buttonClick}>Using Mathjs</button>
+      <h1>{show&& "Calculator with mathjs"}</h1>
       <div id='cal'>
         <div id='screen'>{screen}</div>
         <div id='pad'>
