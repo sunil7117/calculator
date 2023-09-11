@@ -1,3 +1,4 @@
+import * as  math from 'mathjs';
 import './App.css';
 import { useState } from 'react';
 
