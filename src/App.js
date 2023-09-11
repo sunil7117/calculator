@@ -5,7 +5,26 @@ function App() {
   const[screen,setScreen]=useState("")
   console.log(screen)
   const handleClick=(keys)=>{
-  
+    switch(keys){
+      case "=":
+      setScreen(math.evaluate(screen))
+      break
+      case 'c':
+        setScreen("")
+        break
+      case 'b':
+        if(typeof(screen)==="string"){
+          console.log("Strings")
+          setScreen(screen.slice(0,-1))
+        }else{
+          console.log("number")
+          setScreen("")
+        }
+        break
+    default:
+      setScreen((screen)=>
+      screen+keys)
+  }
   }
 
   return (
